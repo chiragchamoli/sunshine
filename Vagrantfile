@@ -1,10 +1,11 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# https://github.com/chiragchamoli/sunshine.git
 # Config Github Settings
-github_username = "fideloper"
-github_repo     = "Vaprobash"
-github_branch   = "1.4.2"
+github_username = "chiragchamoli"
+github_repo     = "sunshine"
+github_branch   = "master"
 github_url      = "https://raw.githubusercontent.com/#{github_username}/#{github_repo}/#{github_branch}"
 
 # Because this:https://developer.github.com/changes/2014-12-08-removing-authorizations-token/
@@ -204,10 +205,10 @@ Vagrant.configure("2") do |config|
   # config.vm.provision "shell", path: "#{github_url}/scripts/mssql.sh"
 
   # Provision Vim
-  # config.vm.provision "shell", path: "#{github_url}/scripts/vim.sh", args: github_url
+   config.vm.provision "shell", path: "#{github_url}/scripts/vim.sh", args: github_url
 
   # Provision Docker
-  # config.vm.provision "shell", path: "#{github_url}/scripts/docker.sh", args: "permissions"
+   config.vm.provision "shell", path: "#{github_url}/scripts/docker.sh", args: "permissions"
 
   ####
   # Web Servers
@@ -217,7 +218,7 @@ Vagrant.configure("2") do |config|
   # config.vm.provision "shell", path: "#{github_url}/scripts/apache.sh", args: [server_ip, public_folder, hostname, github_url]
 
   # Provision Nginx Base
-  # config.vm.provision "shell", path: "#{github_url}/scripts/nginx.sh", args: [server_ip, public_folder, hostname, github_url]
+   config.vm.provision "shell", path: "#{github_url}/scripts/nginx.sh", args: [server_ip, public_folder, hostname, github_url]
 
 
   ####
@@ -228,7 +229,7 @@ Vagrant.configure("2") do |config|
   # config.vm.provision "shell", path: "#{github_url}/scripts/mysql.sh", args: [mysql_root_password, mysql_version, mysql_enable_remote]
 
   # Provision PostgreSQL
-  # config.vm.provision "shell", path: "#{github_url}/scripts/pgsql.sh", args: pgsql_root_password
+   config.vm.provision "shell", path: "#{github_url}/scripts/pgsql.sh", args: pgsql_root_password
 
   # Provision SQLite
   # config.vm.provision "shell", path: "#{github_url}/scripts/sqlite.sh"
@@ -243,7 +244,7 @@ Vagrant.configure("2") do |config|
   # config.vm.provision "shell", path: "#{github_url}/scripts/couchdb.sh"
 
   # Provision MongoDB
-  # config.vm.provision "shell", path: "#{github_url}/scripts/mongodb.sh", args: [mongo_enable_remote, mongo_version]
+   config.vm.provision "shell", path: "#{github_url}/scripts/mongodb.sh", args: [mongo_enable_remote, mongo_version]
 
   # Provision MariaDB
   # config.vm.provision "shell", path: "#{github_url}/scripts/mariadb.sh", args: [mysql_root_password, mysql_enable_remote]
@@ -276,10 +277,10 @@ Vagrant.configure("2") do |config|
   ##########
 
   # Install Memcached
-  # config.vm.provision "shell", path: "#{github_url}/scripts/memcached.sh"
+   config.vm.provision "shell", path: "#{github_url}/scripts/memcached.sh"
 
   # Provision Redis (without journaling and persistence)
-  # config.vm.provision "shell", path: "#{github_url}/scripts/redis.sh"
+   config.vm.provision "shell", path: "#{github_url}/scripts/redis.sh"
 
   # Provision Redis (with journaling and persistence)
   # config.vm.provision "shell", path: "#{github_url}/scripts/redis.sh", args: "persistent"
@@ -297,7 +298,7 @@ Vagrant.configure("2") do |config|
   # config.vm.provision "shell", path: "https://toolbelt.heroku.com/install-ubuntu.sh"
 
   # Install Supervisord
-  # config.vm.provision "shell", path: "#{github_url}/scripts/supervisord.sh"
+  config.vm.provision "shell", path: "#{github_url}/scripts/supervisord.sh"
 
   # Install Kibana
   # config.vm.provision "shell", path: "#{github_url}/scripts/kibana.sh"
@@ -313,7 +314,7 @@ Vagrant.configure("2") do |config|
   ##########
 
   # Install Nodejs
-  # config.vm.provision "shell", path: "#{github_url}/scripts/nodejs.sh", privileged: false, args: nodejs_packages.unshift(nodejs_version, github_url)
+   config.vm.provision "shell", path: "#{github_url}/scripts/nodejs.sh", privileged: false, args: nodejs_packages.unshift(nodejs_version, github_url)
 
   # Install Ruby Version Manager (RVM)
   # config.vm.provision "shell", path: "#{github_url}/scripts/rvm.sh", privileged: false, args: ruby_gems.unshift(ruby_version)
@@ -327,7 +328,7 @@ Vagrant.configure("2") do |config|
 
   # Provision Composer
   # You may pass a github auth token as the first argument
-  # config.vm.provision "shell", path: "#{github_url}/scripts/composer.sh", privileged: false, args: [github_pat, composer_packages.join(" ")]
+  config.vm.provision "shell", path: "#{github_url}/scripts/composer.sh", privileged: false, args: [github_pat, composer_packages.join(" ")]
 
   # Provision Laravel
   # config.vm.provision "shell", path: "#{github_url}/scripts/laravel.sh", privileged: false, args: [server_ip, laravel_root_folder, public_folder, laravel_version]
@@ -345,7 +346,7 @@ Vagrant.configure("2") do |config|
   # config.vm.provision "shell", path: "#{github_url}/scripts/git-ftp.sh", privileged: false
 
   # Install Ansible
-  # config.vm.provision "shell", path: "#{github_url}/scripts/ansible.sh"
+  config.vm.provision "shell", path: "#{github_url}/scripts/ansible.sh"
 
   # Install Android
   # config.vm.provision "shell", path: "#{github_url}/scripts/android.sh"
@@ -355,6 +356,6 @@ Vagrant.configure("2") do |config|
   # Any local scripts you may want to run post-provisioning.
   # Add these to the same directory as the Vagrantfile.
   ##########
-  # config.vm.provision "shell", path: "./local-script.sh"
+  config.vm.provision "shell", path: "./local-script.sh"
 
 end
