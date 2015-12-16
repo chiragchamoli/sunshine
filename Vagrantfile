@@ -193,13 +193,13 @@ Vagrant.configure("2") do |config|
   ##########
 
   # Provision Base Packages
-  config.vm.provision "shell", path: "/scripts/base.sh", args: [github_url, server_swap, server_timezone]
+  config.vm.provision "shell", path: "#{github_url}//scripts/base.sh", args: [github_url, server_swap, server_timezone]
 
   # optimize base box
   config.vm.provision "shell", path: "#{github_url}/scripts/base_box_optimizations.sh", privileged: true
 
   # Provision PHP
-  config.vm.provision "shell", path: "/scripts/php.sh", args: [php_timezone, hhvm, php_version]
+  config.vm.provision "shell", path: "#{github_url}//scripts/php.sh", args: [php_timezone, hhvm, php_version]
 
   # Enable MSSQL for PHP
   # config.vm.provision "shell", path: "#{github_url}/scripts/mssql.sh"
