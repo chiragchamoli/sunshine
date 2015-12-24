@@ -15,31 +15,14 @@ echo ">>> Installing Nginx"
 
 [[ -z $1 ]] && { echo "!!! IP address not set. Check the Vagrant file."; exit 1; }
 
-if [[ -z $2 ]]; then
-    public_folder="/vagrant"
-else
-    public_folder="$2"
-fi
-
-if [[ -z $3 ]]; then
-    hostname=""
-else
-    # There is a space, because this will be suffixed
-    hostname=" $3"
-fi
-
-if [[ -z $4 ]]; then
-    github_url="https://raw.githubusercontent.com/fideloper/Vaprobash/master"
-else
-    github_url="$4"
-fi
+public_folder="$2"
+github_url="$4"
+hostname=" $3"
 
 # Add repo for latest stable nginx
 sudo add-apt-repository -y ppa:nginx/stable
-
 # Update Again
 sudo apt-get update
-
 # Install Nginx
 # -qq implies -y --force-yes
 sudo apt-get install -qq nginx
