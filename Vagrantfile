@@ -27,10 +27,13 @@ Vagrant.configure(2) do |config|
   config.vm.network "private_network", ip: "192.168.9.108"
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.hostname = hostname
-  config.vm.synced_folder "./", "/vagrant", id: "vagrant-root",
+  config.vm.synced_folder "./", "/home/vagrant", id: "vagrant-root",
     owner: "vagrant",
     group: "www-data",
     mount_options: ["dmode=775,fmode=664"]
+    
+    # remove: sudo chown vagrant:www-data 
+    
 
    # If using VirtualBox
   config.vm.provider :virtualbox do |vb|
