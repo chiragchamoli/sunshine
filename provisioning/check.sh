@@ -18,6 +18,4 @@ echo "8. redis-cli installed"
 node -v
 echo "9. node installed"
 node -v
-echo "Looks decent."
-echo "192.168.9.108.xip.io "
-echo "==============================================="
+echo ">>>>>>>>>>Setup is completd.<<<<<<<<<<"

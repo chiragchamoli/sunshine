@@ -7,7 +7,7 @@ Vagrant.configure(2) do |config|
   server_memory         = "1024" # MB
   server_swap           = "1025" # Options: false | int (MB) - Guideline: Between one or two times the server_memory
   server_timezone       = "UTC"
-  hostname              = "sedev1"
+  hostname              = "sedev2"
   # php
   php_timezone          = "UTC"    # http://php.net/manual/en/timezones.php
   php_version           = "5.6"    # Options: 5.5 | 5.6
@@ -27,11 +27,12 @@ Vagrant.configure(2) do |config|
   config.vm.network "private_network", ip: "192.168.9.108"
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.hostname = hostname
-  config.vm.synced_folder "./", "/home/vagrant", id: "vagrant-root",
+
+   config.vm.synced_folder "code","/var/www/html", id: "vagrant-root",
     owner: "vagrant",
     group: "www-data",
-    mount_options: ["dmode=775,fmode=664"]
-    
+    mount_options: ["dmode=777,fmode=777"]
+
     # remove: sudo chown vagrant:www-data 
     
 
@@ -70,9 +71,9 @@ Vagrant.configure(2) do |config|
   
   # PHP Options
   composer_packages     = [        # List any global Composer packages that you want to install
-    "phpunit/phpunit:4.0.*",
-    "codeception/codeception=*",
-    "phpspec/phpspec:2.0.*@dev",
+    #"phpunit/phpunit:4.0.*",
+    #"codeception/codeception=*",
+    #"phpspec/phpspec:2.0.*@dev",
     #"squizlabs/php_codesniffer:1.5.*",
   ]
   config.vm.provision "shell", path: "provisioning/composer.sh", privileged: false, args: [github_pat, composer_packages.join(" ")]

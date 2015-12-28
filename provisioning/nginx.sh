@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+ 
 # Test if PHP is installed
 php -v > /dev/null 2>&1
 PHP_IS_INSTALLED=$?
