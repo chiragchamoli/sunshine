@@ -42,7 +42,7 @@ Vagrant.configure(2) do |config|
    config.vm.synced_folder srcFolder, destFolder, id: "vagrant-root",
     owner: "vagrant",
     group: "www-data",
-    mount_options: ["dmode=777,fmode=777"]
+    mount_options: ["dmode=775,fmode=664"]
 
     # remove: sudo chown vagrant:www-data 
     
