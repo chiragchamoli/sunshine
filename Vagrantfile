@@ -1,13 +1,21 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+# Require YAML module
+require 'yaml'
+
+params = YAML::load_file("./config.yml")
+
+
 Vagrant.configure(2) do |config|
   
-  server_ip             = "192.168.9.108"
+  server_ip             = params['ip']
+  srcFolder             = "."
+  destFolder            = "/var/www/html"
   server_cpus           = "1"   # Cores
   server_memory         = "1024" # MB
   server_swap           = "1025" # Options: false | int (MB) - Guideline: Between one or two times the server_memory
   server_timezone       = "UTC"
-  hostname              = "sebox"
+  hostname              = params['hostname']
   # php
   php_timezone          = "UTC"    # http://php.net/manual/en/timezones.php
   php_version           = "5.6"    # Options: 5.5 | 5.6
@@ -19,16 +27,18 @@ Vagrant.configure(2) do |config|
   mongo_enable_remote   = "false"  # remote access enabled when true
   github_pat            = ""
   github_url = "https://raw.githubusercontent.com/chiragchamoli/sunshine/master"
-  public_folder         = "/vagrant"
+  public_folder         = destFolder
+  #{}"/vagrant"
+  
   config.vm.box = "ubuntu/trusty64"
 
   #config.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/14.04/providers/virtualbox.box"
   config.vm.box_check_update = false
-  config.vm.network "private_network", ip: "192.168.9.108"
+  config.vm.network "private_network", ip: server_ip
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.hostname = hostname
 
-   config.vm.synced_folder ".","/var/www/html", id: "vagrant-root",
+   config.vm.synced_folder srcFolder, destFolder, id: "vagrant-root",
     owner: "vagrant",
     group: "www-data",
     mount_options: ["dmode=777,fmode=777"]
