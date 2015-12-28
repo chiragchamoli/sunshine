@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo ">>> Installing 7/13"
 
 echo ">>> Installing PostgreSQL"
 
@@ -44,3 +45,5 @@ sudo -u postgres psql -c "CREATE ROLE root LOGIN UNENCRYPTED PASSWORD '$1' NOSUP
 
 # Make sure changes are reflected by restarting
 sudo service postgresql restart
+
+echo ">>> Finished Installing 7/13"

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+echo ">>> Installing 7/13"
 echo ">>> Installing MongoDB"
 
 # Get key and add to sources
@@ -47,3 +47,5 @@ if [ $PHP_IS_INSTALLED -eq 0 ]; then
     ln -s /etc/php5/mods-available/mongo.ini /etc/php5/cli/conf.d/mongo.ini
     sudo service php5-fpm restart
 fi
+
+echo ">>> Installing 7/13"

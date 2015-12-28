@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+  echo ">>> Installing 5/13: PHP"
+
 export LANG=C.UTF-8
 
 PHP_TIMEZONE=$1
@@ -90,3 +92,6 @@ EOF
 
     sudo service php5-fpm restart
 fi
+
+
+  echo ">>> Finished Installing PHP 5/13"

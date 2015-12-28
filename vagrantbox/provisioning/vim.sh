@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo ">>> Installing 4/13"
 
 echo ">>> Setting up Vim"
 
@@ -18,4 +19,4 @@ sudo chown vagrant:vagrant /home/vagrant/.vimrc
 
 # Install Vundle Bundles
 sudo su - vagrant -c 'vim +BundleInstall +qall'
-echo "√ Vim Installed"
+echo ">>> Finsihed Installing 4/13"

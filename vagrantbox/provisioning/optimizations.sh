@@ -1,4 +1,5 @@
 #!/bin/bash
+echo ">>> Installing 3/13"
 
 # exit script if not run as root
 if [[ $EUID -ne 0 ]]; then
@@ -15,3 +16,5 @@ perl -pi -e 's@^\s*(deb(\-src)?)\s+http://us.archive.*?\s+@\1 mirror://mirrors.u
 
 # update repositories
 apt-get update
+
+echo ">>> Finished installing 3/13"

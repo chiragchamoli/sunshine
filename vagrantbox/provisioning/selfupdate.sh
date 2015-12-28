@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo ">>> Installing 2/13"
 echo ">>> Installing Base Packages + Self update"
 
 # Update
@@ -65,4 +66,4 @@ shopt -u nocasematch
 # Enable cachefilesd
 echo "RUN=yes" > /etc/default/cachefilesd
 
-echo "√ Base updates complete"
+echo ">>> Finished installing 2/13"

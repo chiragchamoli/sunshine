@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+echo ">>> Installing 10/13"
 echo ">>> Installing Redis"
 
 # Add repository
@@ -37,3 +37,4 @@ if [ ! -z "$1" ]; then
 fi # arg check
 
 sudo service redis-server restart
+echo ">>> Finsihed Installing 10/13"

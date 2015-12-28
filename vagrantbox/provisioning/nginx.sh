@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
- 
+echo ">>> Installing NGINX 6/13"
+
 # Test if PHP is installed
 php -v > /dev/null 2>&1
 PHP_IS_INSTALLED=$?
@@ -59,3 +60,5 @@ if [[ $HHVM_IS_INSTALLED -ne 0 && $PHP_IS_INSTALLED -eq 0 ]]; then
 fi
 
 sudo service nginx restart
+
+echo ">>> Finished Installing 6/13"

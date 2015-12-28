@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo ">>> Installing Composer  12/13"
 
 # Test if PHP is installed
 php -v > /dev/null 2>&1
@@ -84,3 +85,5 @@ if [[ ! -z $COMPOSER_PACKAGES ]]; then
         composer global require ${COMPOSER_PACKAGES[@]}
     fi
 fi
+
+echo ">>> Finished Installing 12/13"

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo ">>> Installing  Nogejs 11/13"
 
 # Test if NodeJS is installed
 node -v > /dev/null 2>&1
@@ -66,3 +67,5 @@ if [[ ! -z $NODE_PACKAGES ]]; then
 
     npm install -g ${NODE_PACKAGES[@]}
 fi
+
+echo ">>> Finished Node.js Installing 11/13"
