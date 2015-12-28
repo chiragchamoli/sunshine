@@ -58,15 +58,25 @@ Vagrant.configure(2) do |config|
   # custom variables 
   
   #provision : basic 
+  echo ">>> Installing 1/13"
   config.vm.provision "shell", path: "./vagrantbox/provisioning/timezone.sh", args: [server_timezone]
+  echo ">>> Installing 2/13"
   config.vm.provision "shell", path: "./vagrantbox/provisioning/selfupdate.sh", args: [server_timezone,server_swap]
+  echo ">>> Installing 3/13"
   config.vm.provision "shell", path: "./vagrantbox/provisioning/optimizations.sh", privileged: true
+  echo ">>> Installing 4/13"
   config.vm.provision "shell", path: "./vagrantbox/provisioning/vim.sh"
+  echo ">>> Installing 5/13"
   config.vm.provision "shell", path: "./vagrantbox/provisioning/php.sh", args: [php_timezone, hhvm, php_version]
+  echo ">>> Installing 6/13"
   config.vm.provision "shell", path: "./vagrantbox/provisioning/nginx.sh", args: [server_ip, public_folder, hostname, github_url]
+  echo ">>> Installing 7/13"
   config.vm.provision "shell", path: "./vagrantbox/provisioning/pg.sh", args: pgsql_root_password
+  echo ">>> Installing 8/13"
   config.vm.provision "shell", path: "./vagrantbox/provisioning/mongodb.sh", args: [mongo_enable_remote, mongo_version]
+  echo ">>> Installing 9/13"
   config.vm.provision "shell", path: "./vagrantbox/provisioning/memcached.sh"
+  echo ">>> Installing 10/13"
   config.vm.provision "shell", path: "./vagrantbox/provisioning/redis.sh"
 
   # Javascript 
@@ -77,7 +87,7 @@ Vagrant.configure(2) do |config|
     "bower",
     #"yo",
   ]
-
+  echo ">>> Installing 11/13"
   config.vm.provision "shell", path: "./vagrantbox/provisioning/nodejs.sh", privileged: false, args: nodejs_packages.unshift(nodejs_version, github_url)
   
   # PHP Options
@@ -87,8 +97,11 @@ Vagrant.configure(2) do |config|
     #"phpspec/phpspec:2.0.*@dev",
     #"squizlabs/php_codesniffer:1.5.*",
   ]
+  echo ">>> Installing 12/13"
   config.vm.provision "shell", path: "./vagrantbox/provisioning/composer.sh", privileged: false, args: [github_pat, composer_packages.join(" ")]
+  echo ">>> Installing 13/13"
   config.vm.provision "shell", path: "./vagrantbox/provisioning/ansible.sh"
+  echo ">>> Installing completed Just Claeaning Up. "
   config.vm.provision "shell", path: "./vagrantbox/provisioning/check.sh"
 
 
