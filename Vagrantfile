@@ -9,8 +9,8 @@ params = YAML::load_file("./config.yml")
 Vagrant.configure(2) do |config|
   
   server_ip             = params['ip']
-  srcFolder             = "."
-  destFolder            = "/var/www/html"
+  srcFolder             = params['folders_local']
+  destFolder            = params['folders_vm']
   server_cpus           = "1"   # Cores
   server_memory         = "1024" # MB
   server_swap           = "1025" # Options: false | int (MB) - Guideline: Between one or two times the server_memory
@@ -35,6 +35,7 @@ Vagrant.configure(2) do |config|
   #config.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/14.04/providers/virtualbox.box"
   config.vm.box_check_update = false
   config.vm.network "private_network", ip: server_ip
+
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.hostname = hostname
 

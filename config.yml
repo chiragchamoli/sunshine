@@ -1,3 +1,7 @@
 ---
 ip : 192.168.9.108
 hostname: neo42
+memory: 2048
+cpus: 1
+folders_local: ~/Code
+folders_vm: /home/vagrant/Code
